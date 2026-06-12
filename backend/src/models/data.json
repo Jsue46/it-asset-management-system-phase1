@@ -1,0 +1,112 @@
+{
+  "assets": [
+    {
+      "id": "ASSET-001",
+      "name": "Servidor HP ProLiant DL360 Gen10",
+      "type": "Hardware",
+      "category": "Servidores",
+      "serialNumber": "SNDL360G10X99",
+      "location": "Cuarto de Servidores (Edificio T-3)",
+      "status": "Activo",
+      "assignedTo": "Ing. Jorge Luis Álvarez",
+      "purchaseDate": "2024-01-15",
+      "price": 4500,
+      "description": "Servidor principal para prácticas de Teoría de Sistemas 2 y bases de datos de laboratorios."
+    },
+    {
+      "id": "ASSET-002",
+      "name": "Proyector Multimedia Epson PowerLite L520U",
+      "type": "Hardware",
+      "category": "Proyectores",
+      "serialNumber": "EPSON889201L",
+      "location": "Laboratorio 301 (Edificio T-3)",
+      "status": "Activo",
+      "assignedTo": "Aux. Sergio Andrés Larios",
+      "purchaseDate": "2025-02-10",
+      "price": 1200,
+      "description": "Proyector de alta resolución para conferencias y clases presenciales/virtuales."
+    },
+    {
+      "id": "ASSET-003",
+      "name": "Lote de 30 Computadoras Dell OptiPlex 7090",
+      "type": "Hardware",
+      "category": "Computadoras",
+      "serialNumber": "DELLOPTIPLX-LOTE3",
+      "location": "Laboratorio 102 (Edificio T-3)",
+      "status": "Activo",
+      "assignedTo": "Administrador de Laboratorios",
+      "purchaseDate": "2023-08-20",
+      "price": 24000,
+      "description": "Estaciones de trabajo para estudiantes de la Escuela de Ciencias y Sistemas."
+    },
+    {
+      "id": "ASSET-004",
+      "name": "Switch Cisco Catalyst 9300",
+      "type": "Hardware",
+      "category": "Redes",
+      "serialNumber": "CSCO9300-8812A",
+      "location": "Rack Principal de Comunicaciones",
+      "status": "Mantenimiento",
+      "assignedTo": "Líder Técnico de Redes",
+      "purchaseDate": "2023-11-05",
+      "price": 3200,
+      "description": "Switch de core para interconectar los laboratorios del 3er nivel."
+    },
+    {
+      "id": "ASSET-005",
+      "name": "Licencia Anual MATLAB Academic Suite",
+      "type": "Software",
+      "category": "Licencias",
+      "serialNumber": "MATLAB-ACAD-2026",
+      "location": "Servidor de Licencias USAC",
+      "status": "Alerta Expiración",
+      "assignedTo": "Control de Licencias",
+      "purchaseDate": "2025-06-15",
+      "price": 8500,
+      "description": "100 accesos concurrentes para estudiantes de ingeniería. Vence el 15/Jun/2026."
+    },
+    {
+      "id": "ASSET-006",
+      "name": "Licencia de Oracle Database Enterprise Edition",
+      "type": "Software",
+      "category": "Licencias",
+      "serialNumber": "ORCL-DB-EE-04",
+      "location": "Servidor de Producción",
+      "status": "Activo",
+      "assignedTo": "Administrador de BD",
+      "purchaseDate": "2022-04-12",
+      "price": 15000,
+      "description": "5 licencias de procesador para la base de datos de control académico."
+    }
+  ],
+  "maintenance": [
+    {
+      "id": "MNT-001",
+      "assetId": "ASSET-004",
+      "assetName": "Switch Cisco Catalyst 9300",
+      "date": "2026-06-10",
+      "type": "Correctivo",
+      "description": "Actualización preventiva de firmware IOS-XE para corregir vulnerabilidad de seguridad detectada por el equipo de redes.",
+      "cost": 0,
+      "technician": "Ing. Aux. Soporte de TI"
+    },
+    {
+      "id": "MNT-002",
+      "assetId": "ASSET-002",
+      "assetName": "Proyector Multimedia Epson PowerLite L520U",
+      "date": "2026-05-18",
+      "type": "Preventivo",
+      "description": "Limpieza general de filtros de aire, lentes y calibración de brillo en lámpara.",
+      "cost": 75,
+      "technician": "Técnico Externo EPSON"
+    }
+  ],
+  "logs": [
+    {
+      "id": "LOG-001",
+      "timestamp": "2026-06-12T10:00:00.000Z",
+      "action": "Creación",
+      "details": "Sistema de gestión ITAM USAC inicializado con estructura de arquitectura limpia."
+    }
+  ]
+}
