@@ -1,79 +1,103 @@
-# Sistema Integral de Gestión de Activos de TI (ITAM) - USAC
-## Proyecto #1 (Fase 1: Inicio y Planificación con Enfoque Predictivo)
-### Teoría de Sistemas 2 - Grupo 7 (Vacaciones de Junio 2026)
+# IT Asset Management System — Phase 1: Initiation and Planning
 
-Este repositorio contiene tanto la **documentación de gestión bajo el estándar PMBOK 8** como un **prototipo web interactivo, funcional y altamente escalable** empaquetado con Docker Compose.
+Academic project developed for the **Systems Theory 2** course at the Universidad de San Carlos de Guatemala (June 2026 term).
 
----
-
-##  Arquitectura y Escalabilidad
-
-El prototipo se ha estructurado utilizando un enfoque limpio de separación de capas (Backend API + Frontend SPA) para garantizar que en la **Fase 2** (o fase de desarrollo masivo) el equipo pueda escalar el sistema de manera rápida y sin acoplamiento:
-1. **Frontend (SPA):** Diseñado con HTML5 semántico, CSS3 personalizado con variables de tema (colores institucionales de la USAC en un entorno moderno dark-mode con glassmorphism) y Javascript vanilla.
-2. **Backend (API REST):** Construido sobre Node.js y Express.js, exponiendo endpoints limpios para el CRUD de activos, registro de mantenimientos y bitácora de auditoría.
-3. **Persistencia (Base de Datos):** Implementa un motor en memoria con persistencia en archivo JSON (`data.json`). Esto elimina la necesidad de configurar bases de datos complejas para la demostración del prototipo, pero la capa de datos en `src/db.js` está lista para ser reemplazada directamente por PostgreSQL, MySQL o SQLite en la Fase 2 sin alterar la lógica de negocio ni el frontend.
+This repository covers Phase 1 of an IT Asset Management (ITAM) system for a university laboratory environment. It includes both the **project management documentation** following the PMBOK 8 predictive approach and a **functional interactive prototype** containerized with Docker Compose. The project was developed collaboratively as a group assignment.
 
 ---
 
-## 🐳 Cómo Ejecutar el Prototipo
+## Overview
 
-### Opción 1: Usando Docker (Recomendado)
-Asegúrese de tener Docker y Docker Compose instalados, luego ejecute:
+The system is designed to manage hardware and software assets across university laboratories, tracking assignments, maintenance schedules, license expiration alerts, and generating a real-time audit log of all actions.
+
+Phase 1 focuses on project initiation, planning artifacts, and a functional prototype demonstrating the core domain model.
+
+---
+
+## Key Features
+
+- Real-time dashboard with metrics: total assets, operational, under maintenance, license alerts
+- Full CRUD for hardware (servers, computers, networking equipment) and software (licenses)
+- Asset assignment to faculty and lab assistants
+- Preventive and corrective maintenance registration with cost tracking
+- Real-time audit log recording every create, edit, delete, and maintenance action
+
+---
+
+## Architecture
+
+The prototype uses a clean layered separation to allow seamless scaling in Phase 2:
+
+- **Frontend (SPA):** HTML5, CSS3 with custom theme variables, vanilla JavaScript
+- **Backend (REST API):** Node.js, Express.js — CRUD endpoints for assets, maintenance, and audit log
+- **Persistence:** JSON file-based in-memory engine (`data.json`), ready to swap for PostgreSQL, MySQL, or SQLite without touching business logic
+
+---
+
+## Technologies
+
+- **Backend:** Node.js, Express.js
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Containerization:** Docker, Docker Compose
+
+---
+
+## Repository Structure
+
+```
+it-asset-management-system-phase1/
+├── docs/
+│   ├── acta_constitucion.md      # Project Charter (PMBOK 8)
+│   ├── edt_wbs.md                # Work Breakdown Structure
+│   ├── cronograma_gantt.md       # Gantt chart and critical path
+│   ├── presupuesto_costos.md     # Resource and cost plan
+│   └── matriz_riesgos.md         # Risk probability and impact matrix
+├── src/
+│   ├── db.js                     # JSON persistence engine
+│   ├── server.js                 # Express server and API endpoints
+│   └── public/
+│       ├── index.html            # SPA entry point
+│       └── style.css             # Styles and animations
+├── data.json                     # Simulated database
+├── Dockerfile
+├── docker-compose.yml
+└── package.json
+```
+
+---
+
+## Running the Project
+
+### Option 1 — Docker (recommended)
+
 ```bash
 docker compose up --build
 ```
-Una vez levantado, abra su navegador en: **`http://localhost:3000`**
 
-### Opción 2: Ejecución Local (Sin Docker)
-Si prefiere ejecutarlo directamente en su equipo con Node.js:
+Open `http://localhost:3000` in your browser.
 
-1. **Backend:**
-   Abra una terminal en la raíz, navegue al backend e instale/inicie:
-   ```bash
-   cd backend
-   npm install
-   npm start
-   ```
-   *La API estará disponible en `http://localhost:5000`.*
+### Option 2 — Local (Node.js required)
 
-2. **Frontend:**
-   En otra terminal, navegue al frontend e instale/inicie:
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
-   ```
-   *La interfaz de usuario estará disponible en `http://localhost:3000`.*
+```bash
+# Terminal 1 — Backend
+cd src
+npm install
+npm start
+# API available at http://localhost:5000
 
----
-
-## 📂 Estructura de Carpetas
-
-```text
-├── docs/                      # Entregables de Gestión Predictiva (PMBOK 8)
-│   ├── [TEO2]P1_Predictivo_Jun26.pdf
-│   ├── acta_constitucion.md   # Acta de Constitución del Proyecto (Project Charter)
-│   ├── edt_wbs.md             # Estructura de Desglose del Trabajo
-│   ├── cronograma_gantt.md    # Hitos, Gantt y Ruta Crítica
-│   ├── presupuesto_costos.md  # Plan de Recursos y Costos Ficticios
-│   └── matriz_riesgos.md      # Matriz de Probabilidad e Impacto
-├── src/                       # Código Fuente del Prototipo
-│   ├── db.js                  # Manejador de persistencia de datos (JSON DB)
-│   ├── server.js              # Servidor Express y endpoints API REST
-│   └── public/                # Código Frontend (Interfaz de Usuario)
-│       ├── index.html         # Pantalla principal SPA
-│       └── style.css          # Estilos premium, animaciones y glassmorphism
-├── data.json                  # Base de datos simulada
-├── Dockerfile                 # Definición del contenedor de la aplicación
-├── docker-compose.yml         # Orquestador del servicio dockerizado
-└── package.json               # Dependencias del proyecto Node.js
+# Terminal 2 — Frontend
+cd frontend
+npm install
+npm run dev
+# UI available at http://localhost:3000
 ```
 
 ---
 
-## 🛠️ Características del Prototipo Técnico
-* **Dashboard Interactivo:** Métricas clave en tiempo real (Activos Totales, En Operación, En Mantenimiento, Alertas de Expiración de Licencias) y gráfico de barras CSS dinámico por categorías.
-* **Control de Inventario Completo:** CRUD completo (Creación, Lectura, Actualización, Eliminación) de hardware (servidores, computadoras, redes) y software (licencias).
-* **Asignaciones de Activos:** Vinculación directa de equipos a docentes y auxiliares de laboratorios (ej. Ing. Jorge Luis Álvarez, Aux. Sergio Larios).
-* **Mantenimiento Técnico:** Registro de mantenimientos preventivos y correctivos, calculando costos asociados y actualizando el estado de los activos automáticamente.
-* **Bitácora de Auditoría en Tiempo Real:** Registro automático de cada acción (creación, edición, eliminación o mantenimiento) para cumplir con las normas de gobernanza de TI de la USAC.
+## Academic Context
+
+| Field       | Detail                                         |
+|-------------|------------------------------------------------|
+| Course      | Systems Theory 2 (TEO2) — June 2026 term      |
+| Institution | Universidad de San Carlos de Guatemala         |
+| Type        | Group project                                  |
